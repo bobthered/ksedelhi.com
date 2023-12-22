@@ -26,25 +26,29 @@
 	// props (dynamic)
 	$: if (position === 'bottom')
 		positionClasses = {
-			default: 'bottom-0 left-0 max-w-[100dvh] min-w-[100dvh]',
+			default:
+				'pl-[env(safe-area-inset-left)] pr-[env(safe-area-inset-right)] pb-[env(safe-area-inset-bottom)] bottom-0 left-0 max-w-[100dvh] min-w-[100dvh]',
 			false: 'translate-y-full',
 			true: 'translate-y-0'
 		};
 	$: if (position === 'left')
 		positionClasses = {
-			default: 'top-0 left-0 min-h-[100dvh] max-h-[100dvh]',
+			default:
+				'pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)] pl-[env(safe-area-inset-left)] top-0 left-0 min-h-[100dvh] max-h-[100dvh]',
 			false: '-translate-x-full',
 			true: 'translate-x-0'
 		};
 	$: if (position === 'right')
 		positionClasses = {
-			default: 'top-0 right-0 min-h-[100dvh] max-h-[100dvh]',
+			default:
+				'pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)] pr-[env(safe-area-inset-right)] top-0 right-0 min-h-[100dvh] max-h-[100dvh]',
 			false: 'translate-x-full',
 			true: 'translate-x-0'
 		};
 	$: if (position === 'top')
 		positionClasses = {
-			default: 'top-0 left-0 max-w-[100dvh] min-w-[100dvh]',
+			default:
+				'pl-[env(safe-area-inset-left)] pr-[env(safe-area-inset-right)] pt-[env(safe-area-inset-top)] top-0 left-0 max-w-[100dvh] min-w-[100dvh]',
 			false: '-translate-y-full',
 			true: 'translate-y-0'
 		};
