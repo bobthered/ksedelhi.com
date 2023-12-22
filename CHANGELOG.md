@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.6](https://github.com/ksedelhi/ksedelhi.com/compare/v0.0.5...v0.0.6) (2023-12-22)
+
+
+### Features
+
+* **icons:** add PWA icons ([2202de5](https://github.com/ksedelhi/ksedelhi.com/commit/2202de5b64d1bb18c46b6c324da9e80bdf1e1192))
+
 ### [0.0.5](https://github.com/ksedelhi/ksedelhi.com/compare/v0.0.4...v0.0.5) (2023-12-22)
 
 
