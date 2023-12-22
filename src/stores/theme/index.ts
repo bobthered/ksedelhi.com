@@ -5,23 +5,35 @@ import { twMerge } from 'tailwind-merge';
 // common classes
 const commonClasses = {
 	input:
-		'hover:ring-offset-slate-800 focus:ring-offset-slate-800 focus:ring-slate-800/30 dark:hover:ring-offset-slate-50 dark:focus:ring-offset-slate-50 dark:focus:ring-slate-50/30'
+		'bg-transparent appearance-none rounded-lg leading-6 px-6 py-3 transition duration-200 outline-none ring ring-transparent ring-offset-1 ring-offset-slate-300 dark:ring-offset-slate-500 hover:ring-offset-slate-800 focus:ring-offset-slate-800 focus:ring-slate-800/30 dark:hover:ring-offset-slate-50 dark:focus:ring-offset-slate-50 dark:focus:ring-slate-50/30'
 };
 
 theme.set(sveltewind);
 
 theme.set({
-	a: 'shadow-[inset] hover:shadow-[inset] hover:text-current font-bold',
+	a: 'shadow-none hover:shadow-none hover:text-current font-semibold underline underline-offset-4 decoration-1 hover:decoration-2 transition-all',
 	badge:
-		'bg-slate-800 hover:bg-slate-900 focus:bg-slate-900 focus:ring-slate-800/30 dark:bg-slate-50 dark:hover:bg-slate-200 dark:focus:bg-slate-200 dark:focus:ring-slate-50/30 dark:text-slate-800',
+		'rounded-lg px-3 text-sm bg-slate-800 hover:bg-slate-900 focus:bg-slate-900 focus:ring-slate-800/30 dark:bg-slate-50 dark:hover:bg-slate-200 dark:focus:bg-slate-200 dark:focus:ring-slate-50/30 dark:text-slate-800',
 	button:
-		'bg-slate-800 hover:bg-slate-900 focus:bg-slate-900 focus:ring-slate-800/30 dark:bg-slate-50 dark:hover:bg-slate-200 dark:focus:bg-slate-200 dark:focus:ring-slate-50/30 dark:text-slate-800',
+		'text-sm leading-6 font-bold px-6 py-3 rounded-lg outline-none ring ring-transparent transition duration-200 bg-slate-800 hover:bg-slate-900 focus:bg-slate-900 focus:ring-slate-800/30 dark:bg-slate-50 dark:hover:bg-slate-200 dark:focus:bg-slate-200 dark:focus:ring-slate-50/30 dark:text-slate-800',
+	buttonIcon: 'py-0 aspect-square',
+	card: 'shadow-md bg-white dark:bg-slate-900 dark:shadow-[inset_0_1px_0_0_#ffffff0d,_0_4px_6px_-1px_rgb(0_0_0_/_0.3),_0_2px_4px_-2px_rgb(0_0_0_/_0.3)] ring-1 rounded-lg flex flex-col p-6 ring-slate-800/10 dark:ring-white/5',
 	checkbox: twMerge(
 		commonClasses.input,
+		'px-0 py-0 mr-2',
 		'peer-focus:ring-offset-slate-800 peer-focus:ring-slate-800/30 peer-focus:ring-offset-slate-50 peer-focus:ring-slate-50/30 dark:text-slate-800'
 	),
 	checkboxChecked: 'bg-slate-800 text-white dark:bg-white dark:text-slate-800',
+	container: 'px-6 mx-auto flex flex-col flex-grow lg:max-w-[90rem]',
+	drawer: 'p-0 fixed transition duration-200 bg-white rounded-none dark:bg-slate-900 overflow-auto',
+	header: 'py-3 lg:py-6 flex ring-1 ring-slate-800/10 dark:ring-white/5 lg:pb-3',
+	icon: 'h-6 w-6',
 	input: commonClasses.input,
+	overlay:
+		'bg-black/70 dark:bg-black/70 hover:bg-black/70 focus:bg-black/70 dark:hover:bg-black/70 dark:focus:bg-black/70 rounded-none',
+	nav: 'relative overflow-visible lg:border-t lg:border-slate-800/10 dark:lg:border-white/5 lg:mt-3 lg:pt-3',
+	navToggleButton:
+		'z-[2] w-[3rem] relative lg:hidden ring-offset-2 ring-offset-white dark:ring-offset-slate-800',
 	radio: 'group-hover:ring-offset-slate-800 dark:group-hover:ring-offset-slate-50',
 	radioSelected: 'bg-slate-800 dark:bg-slate-50 dark:after:bg-slate-800 after:scale-100',
 	select: twMerge(commonClasses.input, 'py-3'),

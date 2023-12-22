@@ -5,6 +5,7 @@
 	const componentKeysWithNoSlots = [
 		'Icon',
 		'Input',
+		'NavToggleButton',
 		'ProgressIndicator',
 		'Pwa',
 		'Textarea',
@@ -22,6 +23,7 @@
 	];
 	const props = {
 		Modal: { isOpen: false },
+		NavToggleButton: { class: 'lg:flex' },
 		Overlay: { class: 'hidden' },
 		Radio: { group: 0, value: 1 },
 		Section: { class: 'py-0' },
