@@ -73,7 +73,7 @@
 
 <Section>
 	<Container>
-		<div class="flex flex-col space-y-6 lg:items-start">
+		<div class="flex flex-col space-y-12 lg:items-start">
 			<H1 class="text-center">Upcoming Events</H1>
 			<div class="grid gap-12 lg:grid-cols-3">
 				{#each events as { body, date, title }}

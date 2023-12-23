@@ -9,7 +9,9 @@
 	// props (external)
 	export let alt = '';
 	export let src = '';
+	export let imageClasses = '';
 	export let style: string | undefined = undefined;
+	export let title = 'Want to Join Kappa Sigma Epsilon?';
 	export let use: any[] = [];
 
 	// props (internal)
@@ -26,24 +28,30 @@
 	<slot name="image">
 		<img
 			{alt}
-			class="absolute left-0 top-0 h-full w-full object-cover object-[50%_75%] opacity-50"
+			class={twMerge(
+				'absolute left-0 top-0 h-full w-full object-cover object-[50%_75%] opacity-25',
+				imageClasses
+			)}
 			{src}
 		/>
 	</slot>
 	<div class="absolute left-0 top-0 flex h-full w-full flex-col items-center justify-center">
 		<Container class="items-center justify-center space-y-6">
 			<slot>
-				<H1 class="text-center text-white">Want to Join Kappa Sigma Epsilon?</H1>
-				<A
-					class={twMerge(
-						$theme.button,
-						$theme.buttonLight,
-						'no-underline hover:text-white dark:hover:text-slate-800'
-					)}
-					href="/join"
-				>
-					Join Today
-				</A>
+				<H1 class="text-center text-white">{title}</H1>
+				<slot name="subtitle" />
+				<slot name="button">
+					<A
+						class={twMerge(
+							$theme.button,
+							$theme.buttonLight,
+							'no-underline hover:text-white dark:hover:text-slate-800'
+						)}
+						href="/join"
+					>
+						Join Today
+					</A>
+				</slot>
 			</slot>
 		</Container>
 	</div>

@@ -36,7 +36,7 @@ theme.set({
 	h5: 'uppercase',
 	h6: 'uppercase',
 	header:
-		'shadow-md dark:shadow-[inset_0_1px_0_0_#ffffff0d,_0_4px_6px_-1px_rgb(0_0_0_/_0.3),_0_2px_4px_-2px_rgb(0_0_0_/_0.3)] w-full bg-white dark:bg-slate-900 fixed top-0 left-0 z-[1] py-3 lg:py-6 pwa:pt-[calc(env(safe-area-inset-top)_+_1.5rem)] lg:pwa:pt-[calc(env(safe-area-inset-top)_+_3rem)] flex ring-1 ring-slate-800/10 dark:ring-white/5 lg:pb-3',
+		'transition-all shadow-md dark:shadow-[inset_0_1px_0_0_#ffffff0d,_0_4px_6px_-1px_rgb(0_0_0_/_0.3),_0_2px_4px_-2px_rgb(0_0_0_/_0.3)] w-full bg-white dark:bg-slate-900 fixed top-0 left-0 z-[1] py-3 lg:py-6 pwa:pt-[calc(env(safe-area-inset-top)_+_1.5rem)] lg:pwa:pt-[calc(env(safe-area-inset-top)_+_3rem)] flex ring-1 ring-slate-800/10 dark:ring-white/5 lg:pb-3',
 	icon: 'h-6 w-6',
 	input: commonClasses.input,
 	overlay:
@@ -46,6 +46,7 @@ theme.set({
 		'z-[3] w-[3rem] relative lg:hidden ring-offset-2 ring-offset-white dark:ring-offset-slate-800',
 	radio: 'group-hover:ring-offset-slate-800 dark:group-hover:ring-offset-slate-50',
 	radioSelected: 'bg-slate-800 dark:bg-slate-50 dark:after:bg-slate-800 after:scale-100',
+	section: 'py-[10rem]',
 	select: twMerge(commonClasses.input, 'py-3'),
 	textarea: commonClasses.input
 });

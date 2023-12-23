@@ -4,21 +4,43 @@
 	import { Header } from 'sveltewind/components';
 	import { twMerge } from 'tailwind-merge';
 	import { getEvents } from '$actions';
-	import { A, Button, Container, Drawer, Logo, Nav, NavToggleButton } from '$components';
+	import { A, Container, Drawer, Logo, Nav, NavToggleButton, Portal } from '$components';
 	import { nav, theme } from '$stores';
 
+	// handlers
+	const mousemoveHandler = (e: MouseEvent) => {
+		mouse.x = e.clientX;
+		mouse.y = e.clientY;
+	};
+
 	// props (external)
-	export let style: string | undefined = undefined;
 	export let use: any[] = [];
 
 	// props (internal)
 	const events = getEvents(current_component);
+	const mouse = {
+		start: 165,
+		x: 0,
+		y: 0
+	};
+	let outerWidth = 0;
+	let previousScrollY = 0;
+	let scrollDirection: 'down' | 'up' = 'down';
+	let scrollStart = 200;
+	let scrollY = 0;
 
-	// props (dynamic)
+	// props (dynamic
+	$: if (scrollY !== undefined) {
+		scrollDirection = previousScrollY < scrollY ? 'down' : 'up';
+		previousScrollY = scrollY;
+	}
+	$: top = outerWidth < 1024 || mouse.y < mouse.start ? 0 : Math.min(0, -(scrollY - scrollStart));
 	$: classes = twMerge($$props.class);
 </script>
 
-<Header class={classes} {style} use={[events, ...use]}>
+<svelte:window bind:outerWidth bind:scrollY on:mousemove={mousemoveHandler} />
+
+<Header class={classes} style="top:{top}px" use={[events, ...use]}>
 	<slot>
 		<Container>
 			<div class="flex flex-col">

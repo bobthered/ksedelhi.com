@@ -9,7 +9,7 @@
 >
 	<slot />
 	<Section
-		class="bg-slate-900 text-white selection:bg-slate-100 selection:text-slate-800 dark:bg-slate-100 dark:text-slate-800 dark:selection:bg-slate-900 dark:selection:text-white"
+		class="bg-slate-900 py-[5rem] text-white selection:bg-slate-100 selection:text-slate-800 dark:bg-slate-100 dark:text-slate-800 dark:selection:bg-slate-900 dark:selection:text-white"
 	>
 		<Container>
 			<div class="text-center lg:text-left">
