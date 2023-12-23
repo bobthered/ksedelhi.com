@@ -19,8 +19,4 @@
 </Pwa>
 <Title base="KΣE at SUNY Delhi" />
 
-<main
-	class="pwa:max-h-[100vh] pwa:min-h-[100vh] pwa:pt-[env(safe-area-inset-top)] pwa:pb-[env(safe-area-inset-bottom)] pwa:pl-[env(safe-area-inset-left)] pwa:pr-[env(safe-area-inset-right)] flex max-h-[100dvh] min-h-[100dvh] flex-col"
->
-	<slot />
-</main>
+<slot />

@@ -3,7 +3,7 @@
 	import { current_component } from 'svelte/internal';
 	import { twMerge } from 'tailwind-merge';
 	import { getEvents } from '$actions';
-	import { Button } from '$components';
+	import { Button, Portal } from '$components';
 	import { theme } from '$stores';
 
 	// props (external)
@@ -24,6 +24,8 @@
 	);
 </script>
 
+<!-- <Portal> -->
 <Button class={classes} on:click={close} {style} use={[events, ...use]}>
 	<slot />
 </Button>
+<!-- </Portal> -->
