@@ -1,5 +1,5 @@
 <script>
-	import { Pwa, Title } from '$components';
+	import { Pwa, Title, Toasts } from '$components';
 	import { theme } from '$stores';
 	import '../app.pcss';
 </script>
@@ -18,5 +18,5 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 </Pwa>
 <Title base="KΣE at SUNY Delhi" />
-
+<Toasts offset="1.5rem" toastOptions={{ class: 'w-full' }} />
 <slot />

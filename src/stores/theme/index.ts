@@ -29,6 +29,7 @@ theme.set({
 	container: 'px-6 mx-auto flex flex-col flex-grow lg:max-w-[90rem]',
 	drawer:
 		'z-[2] p-0 fixed transition duration-200 bg-white rounded-none dark:bg-slate-900 overflow-auto',
+	form: 'space-y-6',
 	h1: 'uppercase leading-[3rem]',
 	h2: 'uppercase',
 	h3: 'uppercase',
