@@ -77,27 +77,23 @@
 			<H1 class="text-center">Upcoming Events</H1>
 			<div class="grid gap-12 lg:grid-cols-3">
 				{#each events as { body, date, title }}
-					<div class="flex flex-col items-start">
-						<H2 class="mb-2">{title}</H2>
+					<A class="flex flex-col no-underline lg:items-start" href="/events">
+						<H2 class="mb-2 underline decoration-1 underline-offset-4 hover:decoration-2">
+							{title}
+						</H2>
 						<span class="mb-4 opacity-70">
 							{DateTime.fromFormat(date, 'yyyy-MM-dd').toFormat('ccc. LLLL M, yyyy')}
 						</span>
 						<p
-							class="mb-6 flex max-h-[7.5rem] min-h-[7.5rem] flex-grow truncate whitespace-normal opacity-70"
+							class="mb-6 flex max-h-[7.5rem] flex-grow truncate whitespace-normal opacity-70 lg:min-h-[7.5rem]"
 						>
 							{body}
 						</p>
-						<A
-							class={twMerge($theme.button, 'self-end no-underline dark:hover:text-slate-800')}
-							href="/events"
-						>
-							Read More
-						</A>
-					</div>
+					</A>
 				{/each}
 			</div>
 			<A
-				class={twMerge($theme.button, 'self-center no-underline dark:hover:text-slate-800')}
+				class={twMerge($theme.button, 'no-underline lg:self-center dark:hover:text-slate-800')}
 				href="/events"
 			>
 				See All Events
