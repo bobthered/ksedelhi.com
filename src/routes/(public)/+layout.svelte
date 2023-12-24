@@ -3,7 +3,6 @@
 </script>
 
 <Header />
-
 <main
 	class="flex max-h-[100dvh] min-h-[100dvh] flex-col pwa:max-h-[100vh] pwa:min-h-[100vh] pwa:pb-[env(safe-area-inset-bottom)] pwa:pl-[env(safe-area-inset-left)] pwa:pr-[env(safe-area-inset-right)]"
 >

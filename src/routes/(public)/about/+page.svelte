@@ -19,14 +19,14 @@
 <Section>
 	<Container>
 		<div class="flex flex-col space-y-6 lg:flex-row lg:items-center lg:space-x-8 lg:space-y-0">
-			<div class="flex flex-col space-y-6 lg:items-end">
-				<p>
+			<div class="flex flex-col lg:items-end">
+				<p class="mb-6">
 					<span class="font-bold">Kappa Sigma Epsilon</span> is a group of men that work together through
 					a shared vision and principles to achieve their goals. We are a Fraternal Order dedicated to
 					being a "Men for Others!" organization.
 				</p>
 
-				<p>
+				<p class="mb-6">
 					Membership in <span class="font-bold">Kappa Sigma Epsilon</span> provides our active
 					chapter member with leadership and fellowship opportunities otherwise not had on a college
 					campus.
@@ -36,7 +36,7 @@
 					the best that life has to offer.
 				</p>
 
-				<p>
+				<p class="mb-12">
 					If you are looking to make a difference in life, and have a great time doing it, then
 					check out… <span class="font-bold">Kappa Sigma Epsilon</span>.
 				</p>
