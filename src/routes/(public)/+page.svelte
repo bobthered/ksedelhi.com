@@ -77,8 +77,8 @@
 			<H1 class="text-center">Upcoming Events</H1>
 			<div class="grid gap-12 lg:grid-cols-3">
 				{#each events as { body, date, title }}
-					<A class="flex flex-col no-underline lg:items-start" href="/events">
-						<H2 class="mb-2 underline decoration-1 underline-offset-4 hover:decoration-2">
+					<A class="group flex flex-col no-underline lg:items-start" href="/events">
+						<H2 class="mb-2 underline decoration-1 underline-offset-4 group-hover:decoration-2">
 							{title}
 						</H2>
 						<span class="mb-4 opacity-70">
