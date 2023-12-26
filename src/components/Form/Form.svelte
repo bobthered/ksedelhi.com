@@ -6,25 +6,25 @@
 	import { getEvents } from '$actions';
 	import { applyAction, enhance } from '$app/forms';
 	import { goto, invalidateAll } from '$app/navigation';
-	import { SubmitButton, Toast } from '$components';
-	import { theme, toast as toastStore } from '$stores';
+	import { SubmitButton } from '$components';
+	import { theme, toast } from '$stores';
 
 	// props (external)
 	export let disabled: 'disabled' | undefined = undefined;
-	export let form;
 	export let enhanceHandler = () => {
 		disabled = 'disabled';
 		return async ({ result }) => {
 			disabled = undefined;
 			if (result.type === 'redirect') return goto(result.location);
-			if (result.type === 'success') await invalidateAll();
-			toastStore.custom(Toast, {
-				componentProps: { message: 'Successfully received comment', variant: 'success' }
-			});
-			await applyAction(result);
+			if (result.type === 'success') await successHandler(result);
 		};
 	};
-	export let toast = '';
+	export let successHandler = async (result) => {
+		await invalidateAll();
+		toast(successToastMessage, { variant: 'success' });
+		await applyAction(result);
+	};
+	export let successToastMessage = 'Successfully received comment';
 	export let style: string | undefined = undefined;
 	export let use: any[] = [[enhance, enhanceHandler]];
 
@@ -35,6 +35,6 @@
 	$: classes = twMerge('', $theme.Form, $$props.class);
 </script>
 
-<Form class={classes} {disabled} {style} use={[events, ...use]}>
+<Form {...$$restProps} class={classes} {disabled} {style} use={[events, ...use]}>
 	<slot {disabled} {SubmitButton} />
 </Form>

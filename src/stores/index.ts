@@ -1,4 +1,4 @@
 export * from 'sveltewind/stores';
 export { nav } from './nav';
 export { theme } from './theme';
-export { toast } from 'svelte-sonner';
+export { store as toast } from '$components/Toast/store.ts';

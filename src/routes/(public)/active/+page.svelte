@@ -8,7 +8,7 @@
 
 <HeroSection
 	alt="A group of people sitting next to a dog photo"
-	src="/heros/nima-sarram-GLE2B4BZQqs-unsplash.jpg"
+	src="https://ksedelhi.s3.amazonaws.com/heroes/nima-sarram-GLE2B4BZQqs-unsplash.jpg"
 	title="Active Chapter"
 >
 	<svelte:fragment slot="button"><div class="hidden" /></svelte:fragment>

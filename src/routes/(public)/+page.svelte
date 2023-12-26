@@ -16,7 +16,7 @@
 
 <HeroSection
 	alt="three men laughing while looking in the laptop inside room"
-	src="/heros/priscilla-du-preez-XkKCui44iM0-unsplash.jpg"
+	src="https://ksedelhi.s3.amazonaws.com/heroes/priscilla-du-preez-XkKCui44iM0-unsplash.jpg"
 >
 	<div class="flex flex-col items-center">
 		<H1 class="text-center text-white">Want to Join Kappa Sigma Epsilon?</H1>
@@ -55,7 +55,7 @@
 
 <HeroSection
 	alt="silhouette group of people under sunset"
-	src="/heros/tim-marshall-Wa-gS5R58gA-unsplash.jpg"
+	src="https://ksedelhi.s3.amazonaws.com/heroes/tim-marshall-Wa-gS5R58gA-unsplash.jpg"
 >
 	<div class="flex flex-col items-center">
 		<H1 class="text-center text-white">Photo Gallery</H1>

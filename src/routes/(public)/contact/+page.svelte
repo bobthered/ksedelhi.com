@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { invalidateAll } from '$app/navigation';
 	import {
 		A,
 		Card,
@@ -41,7 +40,7 @@
 
 <HeroSection
 	alt="person holding smartphone"
-	src="/heros/rodion-kutsaiev-0VGG7cqTwCo-unsplash.jpg"
+	src="https://ksedelhi.s3.amazonaws.com/heroes/rodion-kutsaiev-0VGG7cqTwCo-unsplash.jpg"
 	title="Contact Us"
 >
 	<svelte:fragment slot="button"><div class="hidden"></div></svelte:fragment>

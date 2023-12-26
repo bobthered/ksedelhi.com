@@ -8,7 +8,7 @@
 <HeroSection
 	alt="grayscale photo of lion"
 	imageClasses="object-center"
-	src="/heros/glen-carrie-YpttEdPWpGs-unsplash.jpg"
+	src="https://ksedelhi.s3.amazonaws.com/heroes/glen-carrie-YpttEdPWpGs-unsplash.jpg"
 >
 	<div class="flex flex-col items-center">
 		<H1 class="text-center text-white">About Kappa Sigma Epsilon</H1>
@@ -51,7 +51,7 @@
 				<img
 					alt="three man sitting on gray surface"
 					class="aspect-square object-cover object-center"
-					src="/heros/toa-heftiba-xLUwi3yDNb0-unsplash.jpg"
+					src="https://ksedelhi.s3.amazonaws.com/heroes/toa-heftiba-xLUwi3yDNb0-unsplash.jpg"
 				/>
 			</Card>
 		</div>
@@ -61,7 +61,7 @@
 <HeroSection
 	alt="wooden house near pine trees and pond coated with snow during daytime"
 	imageClasses="object-center"
-	src="/heros/ian-keefe-OgcJIKRnRC8-unsplash.jpg"
+	src="https://ksedelhi.s3.amazonaws.com/heroes/ian-keefe-OgcJIKRnRC8-unsplash.jpg"
 	title="Housing Like No Other"
 >
 	<svelte:fragment slot="button">
@@ -84,7 +84,7 @@
 				<img
 					alt="person holding dartboard"
 					class="aspect-square object-cover object-center"
-					src="/heros/museums-victoria-Vurz96uZ7-I-unsplash.jpg"
+					src="https://ksedelhi.s3.amazonaws.com/heroes/museums-victoria-Vurz96uZ7-I-unsplash.jpg"
 				/>
 			</Card>
 			<div class="flex flex-col space-y-6">
