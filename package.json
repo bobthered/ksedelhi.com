@@ -19,6 +19,7 @@
 		"@aws-sdk/lib-storage": "^3.478.0",
 		"@prisma/client": "^5.7.1",
 		"@sveltejs/adapter-auto": "^3.0.0",
+		"@sveltejs/adapter-vercel": "^4.0.3",
 		"@sveltejs/kit": "^2.0.0",
 		"@sveltejs/vite-plugin-svelte": "^3.0.0",
 		"@types/bcryptjs": "^2.4.6",
