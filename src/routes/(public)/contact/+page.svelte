@@ -29,7 +29,7 @@
 		{
 			address: '310 Crest Drive',
 			city: 'Roxbury',
-			description: 'K∑E Alumni Association c/o Manny Birittieri',
+			description: 'KΣE Alumni Association c/o Manny Birittieri',
 			href: 'https://www.google.com/maps/place/310+Crest+Dr,+Roxbury,+NY+12474/@42.2894131,-74.5591786,17z/data=!3m1!4b1!4m6!3m5!1s0x89dc42dabd504b43:0xde7fd8ccbcb3fe8d!8m2!3d42.2894092!4d-74.5566037!16s%2Fg%2F11c26k31sm?entry=ttu',
 			state: 'NY',
 			title: 'Alumni Mailing Address',

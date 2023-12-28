@@ -32,11 +32,26 @@ model Event {
   dateTime DateTime
   featured Boolean  @default(false)
   public   Boolean  @default(false)
+  slug     String
   title    String
 }
 
 model User {
-  id           String @id @default(auto()) @map("_id") @db.ObjectId
-  email        String @unique
-  passwordHash String
+  id            String      @id @default(auto()) @map("_id") @db.ObjectId
+  email         String      @unique
+  passwordHash  String
+  userProfileId String      @unique @db.ObjectId
+  userProfile   UserProfile @relation(fields: [userProfileId], references: [id])
+}
+
+model UserProfile {
+  id        String  @id @default(auto()) @map("_id") @db.ObjectId
+  bio       String  @default("")
+  firstName String
+  imageSrc  String  @default("")
+  lastName  String
+  status    String
+  title     String
+  userId    String? @db.ObjectId
+  user      User?
 }

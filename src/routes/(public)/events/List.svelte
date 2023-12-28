@@ -22,8 +22,14 @@
 				<H1 class="text-center">Upcoming Events</H1>
 			{/if}
 			<div class="grid gap-12 lg:grid-cols-3">
-				{#each events as { content, dateTime, title }}
-					<A class="group flex flex-col font-normal no-underline lg:items-start" href="/events">
+				{#each events as { content, dateTime, slug, title }}
+					{@const year = DateTime.fromMillis(+dateTime).toFormat('yyyy')}
+					{@const month = DateTime.fromMillis(+dateTime).toFormat('MM')}
+					{@const day = DateTime.fromMillis(+dateTime).toFormat('dd')}
+					<A
+						class="group flex flex-col font-normal no-underline lg:items-start"
+						href="/events/{year}/{month}/{day}/{slug}"
+					>
 						<H2 class="mb-2 underline decoration-1 underline-offset-4 group-hover:decoration-2">
 							{title}
 						</H2>
