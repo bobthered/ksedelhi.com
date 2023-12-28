@@ -8,5 +8,6 @@ export { default as Nav } from './Nav/Nav.svelte';
 export { default as NavToggleButton } from './NavToggleButton/NavToggleButton.svelte';
 export { default as Overlay } from './Overlay/Overlay.svelte';
 export { default as SubmitButton } from './SubmitButton/SubmitButton.svelte';
+export { default as SvelteMarkdown } from 'svelte-markdown';
 export { default as Toast } from './Toast/Toast.svelte';
 export { Toaster as Toasts } from 'svelte-sonner';

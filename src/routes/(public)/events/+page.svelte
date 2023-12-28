@@ -1,5 +1,9 @@
 <script lang="ts">
 	import { HeroSection } from '$components';
+	import List from './List.svelte';
+
+	// props (external)
+	export let data;
 </script>
 
 <HeroSection
@@ -9,3 +13,5 @@
 >
 	<svelte:fragment slot="button"><div class="hidden" /></svelte:fragment>
 </HeroSection>
+
+<List events={data.events} />

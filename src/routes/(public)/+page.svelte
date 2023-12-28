@@ -1,17 +1,11 @@
 <script lang="ts">
-	import { LoremIpsum } from 'lorem-ipsum';
-	import { DateTime } from 'luxon';
 	import { twMerge } from 'tailwind-merge';
-	import { A, Container, H1, H2, HeroSection, Section } from '$components';
+	import { A, Container, H1, HeroSection, Section } from '$components';
 	import { theme } from '$stores';
+	import EventList from './events/List.svelte';
 
-	// props (internal)
-	const lorem = new LoremIpsum();
-	const events = [
-		{ body: lorem.generateParagraphs(1), date: '2024-06-08', title: 'Annual Alumni Meeting' },
-		{ body: lorem.generateParagraphs(1), date: '2024-07-06', title: 'SUNY Delhi Spring Festival' },
-		{ body: lorem.generateParagraphs(1), date: '2024-09-09', title: 'Fall Semester Starts' }
-	];
+	// props (external)
+	export let data;
 </script>
 
 <HeroSection
@@ -71,33 +65,4 @@
 	>
 </HeroSection>
 
-<Section>
-	<Container>
-		<div class="flex flex-col space-y-12 lg:items-start">
-			<H1 class="text-center">Upcoming Events</H1>
-			<div class="grid gap-12 lg:grid-cols-3">
-				{#each events as { body, date, title }}
-					<A class="group flex flex-col no-underline lg:items-start" href="/events">
-						<H2 class="mb-2 underline decoration-1 underline-offset-4 group-hover:decoration-2">
-							{title}
-						</H2>
-						<span class="mb-4 opacity-70">
-							{DateTime.fromFormat(date, 'yyyy-MM-dd').toFormat('ccc. LLLL M, yyyy')}
-						</span>
-						<p
-							class="mb-6 flex max-h-[7.5rem] flex-grow truncate whitespace-normal opacity-70 lg:min-h-[7.5rem]"
-						>
-							{body}
-						</p>
-					</A>
-				{/each}
-			</div>
-			<A
-				class={twMerge($theme.button, 'no-underline lg:self-center dark:hover:text-slate-800')}
-				href="/events"
-			>
-				See All Events
-			</A>
-		</div>
-	</Container>
-</Section>
+<EventList events={data.events} isHome={true} />

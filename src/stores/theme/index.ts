@@ -49,7 +49,8 @@ theme.set({
 	radioSelected: 'bg-slate-800 dark:bg-slate-50 dark:after:bg-slate-800 after:scale-100',
 	section: 'py-[10rem]',
 	select: twMerge(commonClasses.input, 'py-3'),
-	textarea: commonClasses.input
+	textarea: commonClasses.input,
+	tr: 'dark:even:bg-[rgba(255,255,255,.025)] dark:hover:even:bg-white/5 hover:black/10 dark:hover:bg-white/5 hover:even:bg-black/10'
 });
 
 export { theme };

@@ -26,6 +26,15 @@ model Donate {
   title    String
 }
 
+model Event {
+  id       String   @id @default(auto()) @map("_id") @db.ObjectId
+  content  String
+  dateTime DateTime
+  featured Boolean  @default(false)
+  public   Boolean  @default(false)
+  title    String
+}
+
 model User {
   id           String @id @default(auto()) @map("_id") @db.ObjectId
   email        String @unique
