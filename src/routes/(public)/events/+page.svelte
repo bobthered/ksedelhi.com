@@ -4,8 +4,6 @@
 
 	// props (external)
 	export let data;
-
-	$: console.log(data.events);
 </script>
 
 <HeroSection
