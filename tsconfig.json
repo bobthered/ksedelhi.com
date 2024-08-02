@@ -11,7 +11,6 @@
 		"strict": true,
 		"moduleResolution": "bundler",
 		"paths": {
-			"$components": ["./src/components"],
 			"$lib": ["./src/lib"],
 			"$lib/*": ["./src/lib/*"]
 		}

@@ -1,5 +1,6 @@
 <script>
-	import { Pwa, Title } from '$components';
+	import { Div, Pwa, Title } from '$lib/components';
+	import { theme } from '$lib/theme';
 	import '../app.css';
 </script>
 
@@ -17,4 +18,6 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 </Pwa>
 <Title base="KΣE at SUNY Delhi" />
-<slot />
+<Div class="flex max-h-screen min-h-screen flex-col overflow-auto [&_*]:overflow-auto">
+	<slot />
+</Div>
