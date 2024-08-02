@@ -1,6 +1,10 @@
 {
-	"Sveltekit - Load Function": {
-		"prefix": "@sk-load",
-		"body": ["export const load = async () => {", "\t$1", "}"]
+	"Better Default Import": {
+		"prefix": "@better default import",
+		"body": ["import $2 from '$1';"]
+	},
+	"Better Named Import": {
+		"prefix": "@better named import",
+		"body": ["import { $2 } from '$1';"]
 	}
 }
