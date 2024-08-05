@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { type Snippet } from 'svelte';
-	import { ChevronDown, Menu, X } from 'lucide-svelte';
-	import { A, Button, Container, Div, Header, Nav, Pwa, Title } from '$lib/components';
-	import Logo from '$lib/components/Logo.svelte';
+	import { fly, slide } from 'svelte/transition';
+	import { ChevronDown } from 'lucide-svelte';
+	import { twMerge } from 'tailwind-merge';
+	import { A, Button, Card, Container, Div, Header, Logo, Nav, Pwa, Title } from '$lib/components';
 	import { theme } from '$lib/theme';
 	import '../app.css';
 
@@ -19,7 +20,7 @@
 			{ href: '/join', label: 'Join' },
 			{ href: '/gallery', label: 'Gallery' },
 			{ href: '/contact', label: 'Contact' },
-			{ isVisible: false, label: 'Brother\'s Only', snippet:brothersOnly}
+			{ href: '/brothers-only', label: 'Brother\'s Only' },
 		],
 		open:() => navigation.isVisible = true,
 		toggle:() => navigation.isVisible = !navigation.isVisible
@@ -27,24 +28,30 @@
 	let { children } = $props();
 </script>
 
-{#snippet brothersOnly()}
-	<Div class="flex flex-col px-4">
-		<Button>Login</Button>
-		<Button>SignUp</Button>
-	</Div>
-{/snippet}
-
-{#snippet navItem(href:string | undefined, isVisible:boolean | undefined, label:string, snippet:Snippet | undefined, toggle:() => void | undefined)}
+{#snippet navItem(close:() => void | undefined, href:string | undefined, isVisible:boolean | undefined, label:string, open:() => void | undefined, snippet:Snippet | undefined, toggle:() => void | undefined)}
 	{#if href}
-		<A class="px-0 py-6 shadow-none hover:shadow-none focus:shadow-none" {href}>{label}</A>
-	{:else}
-		<Div class="flex flex-col">
-			<Button class="justify-between px-0 py-6 text-current dark:text-current bg-transparent hover:bg-transparent focus:bg-transparent dark:bg-transparent dark:hover:bg-transparent dark:focus:bg-transparent" onclick={toggle}>
+		<A class="px-0 py-6 xl:px-6 xl:py-3 shadow-none hover:shadow-none focus:shadow-none flex items-center" {href} onclick={navigation.close}>{label}</A>
+	{:else if isVisible !== undefined}
+		<Div class="flex xl:hidden flex-col relative">
+			<Button class="justify-between px-0 py-6 xl:px-6 xl:py-3 xl:space-x-2 text-current dark:text-current bg-transparent hover:bg-transparent focus:bg-transparent dark:bg-transparent dark:hover:bg-transparent dark:focus:bg-transparent" onclick={toggle}>
 				<span>{label}</span>
 				<ChevronDown class="h-4 w-4 transition duration-200 {isVisible ? 'rotate-180' : 'rotate-0'}" />
 			</Button>
-			{#if isVisible && snippet}
+			{#if snippet}
+				<Div class="flex flex-col" {isVisible} transition={[slide, {axis:'y', duration:200}]}>
 					{@render snippet()}
+				</Div>
+			{/if}
+		</Div>
+		<Div class="hidden xl:flex flex-col relative" onmouseenter={open} onmouseleave={close}>
+			<Button class="justify-between px-0 py-6 xl:px-6 xl:py-3 xl:space-x-2 text-current dark:text-current bg-transparent hover:bg-transparent focus:bg-transparent dark:bg-transparent dark:hover:bg-transparent dark:focus:bg-transparent">
+				<span>{label}</span>
+				<ChevronDown class="h-4 w-4 transition duration-200 {isVisible ? 'rotate-180' : 'rotate-0'}" />
+			</Button>
+			{#if snippet}
+				<Card class="flex flex-col absolute bottom-0 right-0 translate-y-full" {isVisible} transition={[slide, {axis:'y', duration:200}]}>
+					{@render snippet()}
+				</Card>
 			{/if}
 		</Div>
 	{/if}
@@ -66,32 +73,35 @@
 <Title base="KΣE at SUNY Delhi" />
 
 <Div class="flex max-h-screen min-h-screen flex-col overflow-auto">
-	<Div class="fixed top-0 left-0 w-full flex flex-col max-h-screen overflow-auto">
-		<Header>
-			<Container class="flex flex-row items-center justify-between px-4 py-4 text-sm">
-				<A class="shadow-none hover:shadow-none focus:shadow-none" href="/">
+	<Div class="fixed top-0 left-0 w-full flex flex-col max-h-screen overflow-auto xl:overflow-visible">
+		<Header class="z-[1]">
+			<Container class="flex flex-row justify-between px-4 py-0 text-sm">
+				<A class="shadow-none hover:shadow-none focus:shadow-none py-4" href="/">
 					<Logo class="w-28" />
 				</A>
-				<Div class="hidden lg:flex items-center">
+				<Div class="hidden xl:flex">
 					{#each navigation.items as { href, isVisible, label, snippet }, i}
+						{@const close = () => {navigation.items[i].isVisible = false}}
+						{@const open = () => {navigation.items[i].isVisible = true}}
 						{@const toggle = () => {navigation.items[i].isVisible = !navigation.items[i].isVisible}}
-						{@render navItem(href, isVisible, label, snippet, toggle)}
+						{@render navItem(close, href, isVisible, label, open, snippet, toggle)}
 					{/each}
 				</Div>
-				<Button class="px-3 lg:hidden" onclick={navigation.toggle}>
-					{#if navigation.isVisible}
-						<X />
-					{:else}
-						<Menu />
-					{/if}
+				<Button class="px-3 xl:hidden self-center" onclick={navigation.toggle}>
+					<Div class="w-4 aspect-square relative">
+						<Div class={twMerge("w-full h-[2px] absolute top-1/2 left-0 transition duration-200 bg-current", navigation.isVisible ? '-translate-y-1/2 rotate-45' : 'translate-y-[calc(-50%_-_4px)]')} />
+						<Div class={twMerge("w-full h-[2px] absolute top-1/2 left-0 transition duration-200 bg-current", navigation.isVisible ? '-translate-y-1/2 -rotate-45' : 'translate-y-[calc(-50%_+_4px)]')} />
+					</Div>
 				</Button>
 			</Container>
 		</Header>
-		<Nav bind:isVisible={navigation.isVisible} class="px-6 lg:hidden">
+		<Nav bind:isVisible={navigation.isVisible} class="px-6 xl:hidden" transition={[fly, {duration:200, opacity:1, y:'-100%'}]}>
 			<Div class="divide-y divide-slate-950/10 flex flex-col dark:divide-slate-50/10">
 				{#each navigation.items as { href, isVisible, label, snippet }, i}
+					{@const close = () => {navigation.items[i].isVisible = false}}
+					{@const open = () => {navigation.items[i].isVisible = true}}
 					{@const toggle = () => {navigation.items[i].isVisible = !navigation.items[i].isVisible}}
-					{@render navItem(href, isVisible, label, snippet, toggle)}
+					{@render navItem(close, href, isVisible, label, open, snippet, toggle)}
 				{/each}
 			</Div>
 		</Nav>
