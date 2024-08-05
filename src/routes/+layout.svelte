@@ -73,7 +73,7 @@
 <Title base="KΣE at SUNY Delhi" />
 
 <Div class="flex max-h-screen min-h-screen flex-col overflow-auto">
-	<Div class="fixed top-0 left-0 w-full flex flex-col max-h-screen overflow-auto xl:overflow-visible">
+	<Div class="fixed top-0 left-0 w-full flex flex-col max-h-screen overflow-auto xl:overflow-visible z-[1]">
 		<Header class="z-[1]">
 			<Container class="flex flex-row justify-between px-4 py-0 text-sm">
 				<A class="shadow-none hover:shadow-none focus:shadow-none py-4" href="/">
