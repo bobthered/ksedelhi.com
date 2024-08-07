@@ -9,8 +9,8 @@
 	import '../app.css';
 	import { DateTime } from 'luxon';
 
-	// props
-	let events: {
+	// types
+	type Events = {
 		id: string;
 		content: string;
 		dateTime: Date;
@@ -18,26 +18,8 @@
 		public: boolean;
 		slug: string;
 		title: string;
-	}[] = $state([]);
-	const navigation = $state({
-		close: () => navigation.isVisible = false,
-		currentItemIndex: -1,
-		isVisible: false,
-		items: [
-			{ isVisible: false, label: 'About Us', snippet:aboutUsNavItem },
-			{ href: '/active-chapter', label: 'Active Chapter' },
-			{ href: '/donate-charities', label: 'Donate / Charities' },
-			{ href: '/events', label: 'Events' },
-			{ href: '/join', label: 'Join' },
-			{ href: '/gallery', label: 'Gallery' },
-			{ href: '/contact', label: 'Contact' },
-			{ href: '/brothers-only', label: 'Brother\'s Only' },
-		],
-		open:() => navigation.isVisible = true,
-		toggle:() => navigation.isVisible = !navigation.isVisible
-	});
-	
-	let photos: {
+	}[];
+	type Photos = {
 		currentIndex: number;
 		delay: number;
 		items: {
@@ -56,7 +38,29 @@
 			in: string;
 			out: string;
 		};
-	} = $state({
+	}
+
+	// props
+	let events: Events = $state([]);
+	const navigation = $state({
+		close: () => navigation.isVisible = false,
+		currentItemIndex: -1,
+		isVisible: false,
+		items: [
+			{ isVisible: false, label: 'About Us', snippet:aboutUsNavItem },
+			{ href: '/active-chapter', label: 'Active Chapter' },
+			{ href: '/donate-charities', label: 'Donate / Charities' },
+			{ href: '/events', label: 'Events' },
+			{ href: '/join', label: 'Join' },
+			{ href: '/gallery', label: 'Gallery' },
+			{ href: '/contact', label: 'Contact' },
+			{ href: '/brothers-only', label: 'Brother\'s Only' },
+		],
+		open:() => navigation.isVisible = true,
+		toggle:() => navigation.isVisible = !navigation.isVisible
+	});
+	
+	let photos: Photos = $state({
 		currentIndex: 0,
 		delay: 5000,
 		items: [],
@@ -163,7 +167,7 @@
 
 <Div class="flex max-h-screen min-h-screen flex-col overflow-auto">
 	<Div class="fixed top-0 left-0 w-full flex flex-col max-h-screen overflow-auto xl:overflow-visible z-[1]">
-		<Header class="z-[1]">
+		<Header class="z-[1] pwa:pt-[env(safe-area-inset-top)]">
 			<Container class="flex flex-row justify-between px-4 py-0 text-sm">
 				<A class="shadow-none hover:shadow-none focus:shadow-none py-4" href="/">
 					<Logo class="lg:hidden h-[2.5rem]" size="small" />
@@ -185,7 +189,7 @@
 				</Button>
 			</Container>
 		</Header>
-		<Nav bind:isVisible={navigation.isVisible} class="px-6 xl:hidden" transition={[fly, {duration:200, opacity:1, y:'-100%'}]}>
+		<Nav bind:isVisible={navigation.isVisible} class="px-6 xl:hidden pwa:pb-[env(safe-area-inset-bottom)]" transition={[fly, {duration:200, opacity:1, y:'-100%'}]}>
 			<Div class="divide-y divide-slate-950/10 flex flex-col dark:divide-slate-50/10">
 				{#each navigation.items as { href, isVisible, label, snippet }, i}
 					{@const close = () => {navigation.items[i].isVisible = false}}
