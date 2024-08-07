@@ -1,3 +1,4 @@
+import lineClampPlugin from '@tailwindcss/line-clamp';
 import type { Config } from 'tailwindcss';
 import plugin from 'tailwindcss/plugin';
 
@@ -28,6 +29,7 @@ export default {
 	},
 
 	plugins: [
+		lineClampPlugin,
 		plugin(({ addVariant }) => {
 			addVariant('pwa', '@media all and (display-mode: standalone)');
 		})
